@@ -43,7 +43,7 @@ class Model {
       const foundItems = [];
       items.ids.forEach((itemId) => {
         const item = items.data[itemId];
-        const isMatch = checkIsMatch(item, filter);
+        const isMatch = this.checkIsMatch(item, filter);
         if (isMatch) foundItems.push(items.data[itemId]);
       });
       return foundItems;
@@ -93,7 +93,7 @@ class Model {
     // looping ids
     items.ids.forEach((itemId) => {
       const item = items.data[itemId];
-      let isMatch = checkIsMatch(item, filter);
+      let isMatch = this.checkIsMatch(item, filter);
       // the operation
       if (isMatch) {
         deletedItems.push(items.data[itemId]);
