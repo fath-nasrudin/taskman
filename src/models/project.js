@@ -17,10 +17,12 @@ class ProjectModel extends Model {
     this.items = projectStorage;
   }
   create(taskData) {
+    const items = this.read();
     const task = new Project(taskData);
-    this.items.ids.push(task.id);
-    this.items.data[task.id] = task;
-    return this.items.data[task.id];
+    items.ids.push(task.id);
+    items.data[task.id] = task;
+    this.write(items);
+    return items.data[task.id];
   }
 }
 
