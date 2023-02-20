@@ -1,8 +1,8 @@
 const { Schema, Model } = require('./model');
 
 class Project extends Schema {
-  constructor({ title }) {
-    super();
+  constructor({ id, title, createdAt, updatedAt }) {
+    super({ id, createdAt, updatedAt });
     this.title = title;
   }
 }
