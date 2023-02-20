@@ -1,12 +1,21 @@
 const { Schema, Model } = require('./model');
 const Project = require('./project');
 class Task extends Schema {
-  constructor({ title, isDone = false, project = null, dueDate = null }) {
-    super();
+  constructor({
+    id,
+    title = 'untitled',
+    isDone = false,
+    project = null,
+    dueDate = null,
+    createdAt,
+    updatedAt,
+  }) {
+    super({ id, createdAt, updatedAt });
+
     this.isDone = isDone;
     this.title = title;
     this.project = project;
-    this.dueDate = dueDate;
+    this.dueDate = dueDate ? new Date(dueDate) : null;
   }
 }
 
