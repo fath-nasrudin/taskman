@@ -10,16 +10,13 @@ const { setActiveLeftbar } = require('./shared/setActive');
 const { updateMainContent } = require('./shared/mainContent');
 
 const defaultProjects = {
-  defProjects: [],
   init() {
-    const inbox = projectController.addProject({ title: 'Inbox' });
-    this.defProjects.push(inbox);
-  },
-  get() {
-    return this.defProjects;
+    if (projectController.getProjects().length <= 0) {
+      projectController.addProject({ title: 'Inbox' });
+    }
   },
   getInbox() {
-    return this.defProjects.filter((project) => project.title === 'Inbox')[0];
+    return projectController.getProjects({ title: 'Inbox' })[0];
   },
 };
 
