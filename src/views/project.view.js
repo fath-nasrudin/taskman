@@ -116,7 +116,13 @@ const createDefaultDatalist = () => {
 
   const today = { title: 'Today', filterName: 'dueDate', filterValue: '0' };
   const week = { title: 'This Week', filterName: 'dueDate', filterValue: '7' };
-  const list = [inbox, today, week];
+  const isDone = {
+    title: 'Not Done',
+    filterName: 'isDone',
+    filterValue: false,
+  };
+  const allTasks = { title: 'All Tasks' };
+  const list = [inbox, today, week, allTasks, isDone];
 
   list.forEach((item) => {
     const datalistItem = createDatalistItemTask(item);
