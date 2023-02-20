@@ -1,8 +1,22 @@
 const Task = require('../models/task');
+const { differenceInCalendarDays } = require('date-fns');
 
 const taskController = {
-  getTasks(filter) {
-    const tasks = Task.find(filter);
+  getTasks(filter = {}) {
+    const { dueDate, ...filter2 } = filter;
+    let tasks = Task.find(filter2);
+
+    // filter due date
+    if (Number(dueDate) >= 0) {
+      tasks = tasks.filter((task) => {
+        if (task.dueDate) {
+          const diff = differenceInCalendarDays(task.dueDate, new Date());
+          if (diff >= 0 && diff <= dueDate) {
+            return task;
+          }
+        }
+      });
+    }
     return tasks;
   },
 
