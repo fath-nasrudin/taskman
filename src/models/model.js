@@ -114,10 +114,10 @@ class Model {
 }
 
 class Schema {
-  constructor() {
-    this.id = generateId();
-    this.createdAt = new Date();
-    this.updatedAt = new Date();
+  constructor({ id, createdAt, updatedAt }) {
+    this.id = id ? id : generateId();
+    this.createdAt = createdAt ? createdAt : new Date();
+    this.updatedAt = updatedAt ? updatedAt : new Date();
   }
 }
 
