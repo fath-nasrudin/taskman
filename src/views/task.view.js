@@ -12,9 +12,16 @@ const loadTasks = () => {
   taskBody.textContent = '';
 
   let taskDatas = null;
-  const { filterName, filterValue } = taskContainer.dataset;
-  if (!filterName || !filterValue) taskDatas = taskController.getTasks();
-
+  let { filterName, filterValue } = taskContainer.dataset;
+  if (!filterName || filterValue === undefined)
+    taskDatas = taskController.getTasks();
+  if (filterName === 'isDone') {
+    if (filterValue.toLowerCase() === 'true') {
+      filterValue = true;
+    } else {
+      filterValue = false;
+    }
+  }
   // filters
   let filter = { [filterName]: filterValue };
 

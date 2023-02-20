@@ -59,7 +59,9 @@ const createDatalistItemTask = (dataset = {}) => {
     'data-subtype': 'task',
   };
   if (filterName) datalistItem.setAttribute('data-filter-name', filterName);
-  if (filterValue) datalistItem.setAttribute('data-filter-value', filterValue);
+  if (filterValue !== undefined) {
+    datalistItem.setAttribute('data-filter-value', filterValue);
+  }
 
   for (const key in attributes) {
     datalistItem.setAttribute([key], attributes[key]);
