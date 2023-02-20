@@ -6,6 +6,11 @@
   --spacing-lg: calc(var(--spacing-sm)* 2);
   --spacing-xl: calc(var(--spacing-sm)* 2.5);
 
+  --text-sm: 1rem;
+  --text-md: 1.5rem;
+  --text-lg: 2rem;
+  --text-xl: 2.5rem;
+
   --round-xs: 8px;
   --round-sm: 16px;
   --round-md: 24px;
@@ -57,6 +62,14 @@ body {
 .footer {
   grid-column: 1 / -1;
   background-color: rgb(208, 62, 62);
+}
+
+.header {
+  padding: var(--spacing-sm);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 4px;
 }
 
 .sidebar {

@@ -3,7 +3,7 @@ const { loadSidebar } = require('./project.view');
 const createHeader = () => {
   const header = document.createElement('header');
   header.classList.add('header');
-  header.textContent = 'Header';
+  header.textContent = 'Taskman';
   return header;
 };
 
