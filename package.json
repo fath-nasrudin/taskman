@@ -11,6 +11,7 @@
   "author": "fath-nasrudin",
   "license": "ISC",
   "dependencies": {
+    "date-fns": "^2.29.3",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
   }
