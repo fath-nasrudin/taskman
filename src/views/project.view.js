@@ -113,7 +113,7 @@ const createDefaultDatalist = () => {
   inbox = { ...inbox, filterName: 'project', filterValue: inbox.id };
 
   const today = { title: 'Today', filterName: 'dueDate', filterValue: '0' };
-  const week = { title: 'Week', filterName: 'dueDate', filterValue: '7' };
+  const week = { title: 'This Week', filterName: 'dueDate', filterValue: '7' };
   const list = [inbox, today, week];
 
   list.forEach((item) => {
