@@ -7,9 +7,14 @@ class Project extends Schema {
   }
 }
 
+const projectStorage = {
+  ids: [],
+  data: {},
+};
 class ProjectModel extends Model {
   constructor() {
     super();
+    this.items = projectStorage;
   }
   create(taskData) {
     const task = new Project(taskData);
