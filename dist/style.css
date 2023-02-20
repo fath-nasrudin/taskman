@@ -104,6 +104,11 @@ ul.datalist {
   background-color: rgba(0, 0, 0, 0.40);
 }
 
+#list-project .datalist__item {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* Add Form */
 .add-form {
   padding: 0 var(--spacing-sm);
