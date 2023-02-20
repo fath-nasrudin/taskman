@@ -1,4 +1,5 @@
 const Project = require('../models/project');
+const taskController = require('./task.controller');
 
 const projectController = {
   addProject(projectData) {
@@ -13,10 +14,11 @@ const projectController = {
   // delete
   deleteProject(projectId) {
     const removedProject = Project.remove(projectId);
+
+    // delete all related task
+    taskController.deleteMany({ project: { id: projectId } });
     return removedProject;
   },
 };
 
-module.exports = {
-  projectController,
-};
+module.exports = projectController;
