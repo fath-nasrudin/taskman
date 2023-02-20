@@ -37,6 +37,9 @@ const taskController = {
   deleteTask(taskId) {
     Task.remove(taskId);
   },
+  deleteMany({ filter }) {
+    Task.removeMany({ filter });
+  },
 };
 
 // taskController.createTask({ title: 'Doing programming' });
