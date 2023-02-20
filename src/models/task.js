@@ -18,6 +18,20 @@ class Task extends Schema {
     this.dueDate = dueDate ? new Date(dueDate) : null;
   }
 }
+const STORAGE_NAME = 'tasks';
+if (typeof Storage !== 'undefined') {
+  if (!localStorage.getItem(STORAGE_NAME)) {
+    localStorage.setItem(
+      STORAGE_NAME,
+      JSON.stringify({
+        ids: [],
+        data: {},
+      })
+    );
+  }
+} else {
+  console.log('No support storage');
+}
 
 class TaskModel extends Model {
   constructor() {
@@ -33,6 +47,20 @@ class TaskModel extends Model {
     this.write(items);
     return items.data[task.id];
   }
+}
+
+if (typeof Storage !== 'undefined') {
+  TaskModel.prototype.read = function () {
+    let parsedData = JSON.parse(localStorage.getItem(STORAGE_NAME));
+    parsedData.ids.map((id) => {
+      parsedData.data[id] = new Task(parsedData.data[id]);
+    });
+    return parsedData;
+  };
+
+  TaskModel.prototype.write = function (data) {
+    localStorage.setItem(STORAGE_NAME, JSON.stringify(data));
+  };
 }
 
 module.exports = new TaskModel();
