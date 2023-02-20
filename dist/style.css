@@ -72,6 +72,20 @@ body {
   letter-spacing: 4px;
 }
 
+.footer {
+  padding: var(--spacing-xs);
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  color: inherit;
+  font-size: inherit;
+}
+
 .sidebar {
   background-color: #fff;
 

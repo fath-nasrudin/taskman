@@ -10,7 +10,23 @@ const createHeader = () => {
 const createFooter = () => {
   const footer = document.createElement('footer');
   footer.classList.add('footer');
-  footer.textContent = 'Footer';
+  const p = document.createElement('p');
+
+  const text = document.createElement('span');
+  text.textContent = 'Copyright \251 ';
+  p.append(text);
+
+  const link = document.createElement('a');
+  link.href = 'https://github.com/fath-nasrudin';
+  link.target = '_blank';
+  link.textContent = 'Fathurrohman N';
+  p.append(link);
+
+  const year = document.createElement('span');
+  year.textContent = ` ${new Date().getFullYear()}`;
+  p.append(year);
+
+  footer.append(p);
   return footer;
 };
 
